@@ -5,6 +5,18 @@ Creep.prototype.say = function(sayText)
     TVisual.text(sayText,this,{font:"0.5"});
 }
 
+global.displayCostMatrix = function(costMatrix, locationOfInterest, radius = 5)
+{
+	//global.text(text,{x:creep.x,y:creep.y});
+	for (let x = -radius; x < radius; x+=1) {
+		for (let y = -radius; y < radius; y+=1) {
+			let tempPos = {x:locationOfInterest.x+x,y:locationOfInterest.y+y};
+			if(!InBounds(tempPos)){continue;}
+			TVisual.text(costMatrix.get(tempPos.x,tempPos.y),tempPos,{font:0.5});
+		}
+	}
+}
+
 Creep.prototype.moveTo_vis = function(target, options)
 {
     let result = searchPath(this, target, options);
@@ -21,14 +33,4 @@ Creep.prototype.moveTo_vis = function(target, options)
     {
         this.say('xpath');
     }
-}
-
-//TODO: this does not belong here
-Creep.prototype.countActiveBodypart = function(partType)
-{
-	let count = 0;
-	for (let i = 0; i < this.body.length; i++) {
-		if (this.body[i].hits > 0 && this.body[i].type === partType) { count++; }
-	}
-	return count;
 }

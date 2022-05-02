@@ -10,7 +10,7 @@ export function sas_basic_main()
         //this adds unique arena roles into the global roles dictionary to be used in the main creep run loop
         Object.keys(uniqueRoles).forEach(key=>{
             ROLES[key] = uniqueRoles[key];
-        })
+        });
     }
 
     if(CountCreeps('sas1Hauler') === 0)

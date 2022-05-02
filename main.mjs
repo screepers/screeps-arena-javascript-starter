@@ -33,10 +33,11 @@ global.PVisual = new Visual(1,true);
 global.TVisual = new Visual(2,false);
 
 //these could be placed behind container objects to reduce global polution 
+import {} from './SharedModules/generalGlobals.mjs';
 import {} from './SharedModules/generalVisuals.mjs';
 import {} from './SharedModules/generalMovement.mjs';
 import {} from './SharedModules/generalSpawn.mjs';
-import {} from './SharedModules/generalGlobals.mjs';
+import {} from './SharedModules/generalCombat.mjs';
 
 //specific arena imports
 import{ctf_basic_main} from './BasicCaptureTheFlag/main_ctf1.mjs';
@@ -45,8 +46,14 @@ import{cac_basic_main} from './BasicCollectAndControl/main_cac1.mjs';
 
 //non-arena specific roles (if any)
 import{scout} from './SharedModules/CommonRoles/Scout.mjs'
+import{healer} from './SharedModules/CommonRoles/Healer.mjs'
+import{ranger} from './SharedModules/CommonRoles/Ranger.mjs'
+import{mele} from './SharedModules/CommonRoles/Mele.mjs'
 global.ROLES = {
     scout,
+    healer,
+    ranger,
+    mele
 };
 
 export function loop() {
@@ -63,7 +70,8 @@ export function loop() {
     try
     {
         updateGlobalSearches();
-        updateSpawning();
+        GeneralSpawn.updateSpawning();
+        CustomCosts.resetStashedCostMatricies();
     }
     catch(err)
     {

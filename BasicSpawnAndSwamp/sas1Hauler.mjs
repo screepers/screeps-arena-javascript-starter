@@ -3,7 +3,7 @@ export var sas1Hauler = {
 	{
 		if(creep.store[RESOURCE_ENERGY]===0)
         {
-            let targetContainer = findClosestByRange(creep,getObjectsByPrototype(StructureContainer));
+            let targetContainer = findClosestByRange(creep,getObjectsByPrototype(StructureContainer).filter(i=>i.store[RESOURCE_ENERGY]>0));
             if(targetContainer)
             {
                 if(getRange(creep,targetContainer)>1){creep.moveTo(targetContainer);}
