@@ -9,5 +9,7 @@ of screeps and JS.
 Each basic arena attempts to demonstrate some simple strategy or concept.
 
 CTF: inheritance for generalized vs specialize creep operation
+
 SAS: basic spawning based on populations
+
 CAC: cost matrix usage and visualization
