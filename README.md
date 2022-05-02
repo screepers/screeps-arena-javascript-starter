@@ -8,7 +8,7 @@ of screeps and JS.
 
 Each basic arena attempts to demonstrate some simple strategy or concept.
 
-CTF: inheritance for generalized vs specialize creep operation
+CTF: inheritance for generalized vs specialized creep operation
 
 SAS: basic spawning based on populations
 
