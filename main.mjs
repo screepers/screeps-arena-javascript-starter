@@ -125,8 +125,7 @@ export function loop() {
 	});
 
     let cpuUsed = getCpuTime();
-    let limit = arenaInfo.cpuTimeLimit;
-    if(getTicks() === 1){limit = arenaInfo.cpuTimeLimitFirstTick}
+    let limit = (getTicks() === 1) ? arenaInfo.cpuTimeLimitFirstTick : arenaInfo.cpuTimeLimit;
     let usedRatio = cpuUsed / limit;
     console.log('CPU: '+ Math.floor(usedRatio*100)+' %');
 }
