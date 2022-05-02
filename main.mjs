@@ -33,11 +33,11 @@ global.PVisual = new Visual(1,true);
 global.TVisual = new Visual(2,false);
 
 //these could be placed behind container objects to reduce global polution 
-import {} from './SharedModules/generalGlobals.mjs';
-import {} from './SharedModules/generalVisuals.mjs';
-import {} from './SharedModules/generalMovement.mjs';
-import {} from './SharedModules/generalSpawn.mjs';
-import {} from './SharedModules/generalCombat.mjs';
+import './SharedModules/generalGlobals.mjs';
+import './SharedModules/generalVisuals.mjs';
+import './SharedModules/generalMovement.mjs';
+import './SharedModules/generalSpawn.mjs';
+import './SharedModules/generalCombat.mjs';
 
 //specific arena imports
 import{ctf_basic_main} from './BasicCaptureTheFlag/main_ctf1.mjs';
@@ -126,7 +126,7 @@ export function loop() {
 
     let cpuUsed = getCpuTime();
     let limit = arenaInfo.cpuTimeLimit;
-    if(getTicks() === 1){limit += arenaInfo.cpuTimeLimitFirstTick}
+    if(getTicks() === 1){limit = arenaInfo.cpuTimeLimitFirstTick}
     let usedRatio = cpuUsed / limit;
     console.log('CPU: '+ Math.floor(usedRatio*100)+' %');
 }
